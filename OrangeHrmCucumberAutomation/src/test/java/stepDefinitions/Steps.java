@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import io.cucumber.java.en.Given;
@@ -19,8 +20,8 @@ public class Steps {
 	@Given("user launch chrome browser")
 	public void user_launch_chrome_browser() {
 		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers/chromedriver.exe");
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		//WebDriverManager.chromedriver().setup();
+		driver = new FirefoxDriver();
 		lp = new LoginPage(driver);
 
 	}
@@ -30,7 +31,7 @@ public class Steps {
 		driver.get(url);
 	}
 
-	@When("user enters username {string} and password {string}")
+	@When("user enters username as {string} and password as {string}")
 	public void user_enters_username_and_password(String username, String password) {
 		lp.setUsename(username);
 		lp.setPassword(password);

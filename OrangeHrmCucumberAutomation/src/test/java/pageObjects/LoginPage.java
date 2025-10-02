@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +28,8 @@ public class LoginPage {
 	@FindBy(xpath = "//h6[contains(.,'Dashboard')]")
 	WebElement dashboardTitle;
 	
-	public void setUsename(String uname) {
+	public void setUsename(String uname){
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4000));
 		txtUsername.click();
 		txtUsername.sendKeys(uname);
 	}

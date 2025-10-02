@@ -42,13 +42,13 @@ public class Steps {
 		lp.clickLoginButton();
 	}
 
-	@Then("Page title should be {string}")
-	public void page_title_should_be(String title) {
+	@Then("User successfully redirect to  the dashboard")
+	public void page_title_should_be() {
 		if (driver.getPageSource().contains("Invalid credentials")) {
 			driver.close();
 			Assert.assertTrue(false);
 		} else {
-			Assert.assertEquals(title, driver.getTitle());
+			lp.isDisplayDashboard();
 		}
 	}
 
